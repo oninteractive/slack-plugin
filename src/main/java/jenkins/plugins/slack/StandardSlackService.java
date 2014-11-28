@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import jenkins.model.Jenkins;
+import hudson.model.Hudson;
 import hudson.ProxyConfiguration;
 import org.apache.commons.httpclient.UsernamePasswordCredentials;
 import org.apache.commons.httpclient.auth.AuthScope;
@@ -78,8 +78,8 @@ public class StandardSlackService implements SlackService {
     
     private HttpClient getHttpClient() {
         HttpClient client = new HttpClient();
-        if (Jenkins.getInstance() != null) {
-            ProxyConfiguration proxy = Jenkins.getInstance().proxy;
+        if (Hudson.getInstance() != null) {
+            ProxyConfiguration proxy = Hudson.getInstance().proxy;
             if (proxy != null) {
                 client.getHostConfiguration().setProxy(proxy.name, proxy.port);
                 String username = proxy.getUserName();
