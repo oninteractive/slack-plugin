@@ -5,6 +5,10 @@
       		<f:textbox name="slackProjectRoom" value="${instance.getRoom()}"/>
     	</f:entry>
 
+        <f:entry title="Integration token">
+            <f:textbox name="slackToken" value="${instance.getToken()}" />
+        </f:entry>
+
     	<f:entry title="Notify Build Start">
       		<f:checkbox name="slackStartNotification" value="true" checked="${instance.getStartNotification()}"/>
     	</f:entry>

@@ -28,7 +28,10 @@ public class ActiveNotifier implements FineGrainedNotifier {
     private SlackService getSlack(AbstractBuild r) {
         AbstractProject<?, ?> project = r.getProject();
         String projectRoom = Util.fixEmpty(project.getProperty(SlackNotifier.SlackJobProperty.class).getRoom());
-        return notifier.newSlackService(projectRoom);
+
+        String projectToken = Util.fixEmpty(project.getProperty(SlackNotifier.SlackJobProperty.class).getToken());
+
+        return notifier.newSlackService(projectRoom, projectToken);
     }
 
     public void deleted(AbstractBuild r) {
