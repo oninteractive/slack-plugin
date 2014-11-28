@@ -1,4 +1,4 @@
-## Slack plugin for Jenkins
+## Slack plugin for Hudson
 
 Started with a fork of the HipChat plugin:
 
