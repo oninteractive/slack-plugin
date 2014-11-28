@@ -80,7 +80,7 @@ public class StandardSlackService implements SlackService {
         HttpClient client = new HttpClient();
         if (Hudson.getInstance() != null) {
             ProxyConfiguration proxy = Hudson.getInstance().proxy;
-            if (proxy != null) {
+            if (proxy != null && proxy.name != null) {
                 client.getHostConfiguration().setProxy(proxy.name, proxy.port);
                 String username = proxy.getUserName();
                 String password = proxy.getPassword();
